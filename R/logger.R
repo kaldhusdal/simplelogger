@@ -26,9 +26,11 @@
 #' # Log file
 #' logger()$file
 #' # Write to log
-#' logger()$write("MESSAGE", "This is a test message")
+#' logger()$write("INFO", "This is a test message")
+#' logger()$write("SUCCESS", "Success")
 #' logger()$write("WARNING", "This is a test warning")
 #' logger()$write("ERROR", "This is a test error")
+#' logger()$write("FATAL", "There was a fatal error")
 #' # Read log
 #' logger()$read()
 #' # Truncate log
@@ -71,7 +73,7 @@ logger.create <- function (path, suffix, prefix = "log_") {
   logfile <- file.path(path, paste0(prefix, suffix))
   if(!file.exists(logfile)) {
     file.create(logfile)
-    logger.write(logfile, "MESSAGE", "Created log file")
+    logger.write(logfile, "INFO", "Created log file")
   }
   assign("file", logfile, envir = logger.env)
   logger <- function () {
@@ -109,8 +111,8 @@ match.type <- function (x) {
 ## Loger file path
 #logger()$file
 ## Write to log
-#logger()$write("MESSAGE", "Test1")
-#logger()$write("MESSAGE", "Test2")
+#logger()$write("INFO", "Test1")
+#logger()$write("INFO", "Test2")
 ## Read log
 #logger()$read()
 ## Truncate log
