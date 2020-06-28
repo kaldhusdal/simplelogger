@@ -1,6 +1,6 @@
-Package: loggeR
+Package: simplelogger
 Title: A Simple Logging Framework
-Version: 0.1
+Version: 0.1.0
 Authors@R: person("Arne",
                   "Kaldhusdal",
                   email = "arne.kaldhusdal@gmail.com",
